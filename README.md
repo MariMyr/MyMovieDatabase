@@ -1,4 +1,4 @@
-![logo]("C:\Users\marim\OneDrive\Desktop\Logo My movie database.png")
+![Logo My movie database](https://github.com/user-attachments/assets/eaf7022b-9e62-41f1-ac11-ce92aefdd28b)
 
 # Individuellt examensarbete - MyMovieDatabase
 
