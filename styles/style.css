@@ -1,4 +1,5 @@
 @import url('./carousel.css');
+@import url('./movieCards.css');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* Variables */
@@ -85,7 +86,9 @@ body {
     cursor: pointer;
 }
 
+
 .popular-title {
     color: var(--text-yellow);
     font-size: 2rem;
+    margin-bottom: 1rem;
 }
