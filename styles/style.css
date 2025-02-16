@@ -3,12 +3,12 @@
 
 /* Variables */
 :root {
-    --header-grey: #121212;
+    --header-brown: #2A1A1D;
     /* Primary BG bör vara din bakgrundsfärg */
-    --primary-bg: #504b4b;
+    --primary-bg: #271c1e;
     --primary-white: #ffffff;
     --primary-grey: #1A1A1A;
-    --text-yellow: #F5C518;
+    --text-yellow: #FDB94A;
 }
 
 /* Base */
@@ -37,10 +37,11 @@ body {
 }
 
 .header {
-    background-color: var(--header-grey);
+    background-color: var(--header-brown);
     width: 100%;
     padding: 1.5rem;
     z-index: 999;
+    border-bottom: #FDB94A solid 0.1rem;
 }
 
 .header__flex {
@@ -50,8 +51,7 @@ body {
 }
 
 .header__logo {
-    width: 150px;
-    background-color: yellow;
+    width: 250px;
 }
 
 .header__form {
@@ -72,6 +72,8 @@ body {
     width: 5rem;
     border: none;
     cursor: pointer;
+    background-color: var(--text-yellow);
+    font-size: 1rem;
 }
 
 .header__fav-btn {
@@ -81,4 +83,9 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+}
+
+.popular-title {
+    color: var(--text-yellow);
+    font-size: 2rem;
 }
