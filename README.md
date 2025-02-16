@@ -1,4 +1,4 @@
-![logo](/template/res/logo.png)
+![logo](res\Logo My movie database.png)
 
 # Individuellt examensarbete - MyMovieDatabase
 
