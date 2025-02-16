@@ -1,0 +1,41 @@
+@import url(style.css);
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Gör det responsivt */;
+    gap: 2rem;
+    padding: 2rem;;
+}
+
+.movie-card {
+    border: 0.1rem solid var(--text-yellow);
+    border-radius: 0.8rem;
+    width: 15rem;
+    /* margin: 10px;
+    padding: 10px; */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  /* När man hovrar på kortet */
+.movie-card:hover {
+    transform: scale(1.05); /* Förstorar kortet vid hovring */
+  }
+  
+  .movie-card img {
+    width: 100%;
+    height: 20rem;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .movie-card h3 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+    color: #FBD1A2;
+  }
+  
