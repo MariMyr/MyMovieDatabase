@@ -9,7 +9,8 @@
     --primary-bg: #271c1e;
     --primary-white: #ffffff;
     --primary-grey: #1A1A1A;
-    --text-yellow: #FDB94A;
+    --primary-yellow: #FDB94A;
+    --primary-red: #E11E26;
 }
 
 /* Base */
@@ -42,7 +43,7 @@ body {
     width: 100%;
     padding: 1.5rem;
     z-index: 999;
-    border-bottom: #FDB94A solid 0.1rem;
+    border-bottom: var(--primary-yellow) solid 0.1rem;
 }
 
 .header__flex {
@@ -73,14 +74,14 @@ body {
     width: 5rem;
     border: none;
     cursor: pointer;
-    background-color: var(--text-yellow);
+    background-color: var(--primary-yellow);
     font-size: 1rem;
 }
 
 .header__fav-btn {
     text-decoration: none;
     font-size: 1.5rem;
-    color: var(--text-yellow);
+    color: var(--primary-yellow);
     background: none;
     border: none;
     cursor: pointer;
@@ -88,7 +89,8 @@ body {
 
 
 .popular-title {
-    color: var(--text-yellow);
+    color: var(--primary-yellow);
     font-size: 2rem;
     margin-bottom: 1rem;
+    padding-left: 2rem;
 }
