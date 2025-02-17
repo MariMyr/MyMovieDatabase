@@ -11,6 +11,18 @@ export function movieCards(movieList) {
         titleRef.textContent = movie.Title;
         cardRef.appendChild(titleRef);
 
+        // Lägg till hjärta
+        const heartRef = document.createElement('span');
+        heartRef.className = 'far fa-heart'; // Start med kontur
+        heartRef.addEventListener('click', () => {
+            heartRef.classList.toggle('fas');
+            heartRef.classList.toggle('far'); // Växla mellan klasser
+        });
+        cardRef.appendChild(heartRef);
+
+        // Lägg till kortet i container
+        container.appendChild(cardRef);
+
         // Lägg till Poster
         const posterRef = document.createElement('img');
         posterRef.src = movie.Poster;
