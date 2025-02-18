@@ -5,10 +5,10 @@ export function movieCards(movieList) {
     movieList.forEach(movie => {
         // skapa ett kort
         const cardRef = document.createElement('article');
-        cardRef.addEventListener('click', () => {
-            localStorage.setItem('singleMovie', (movie.imdbID));
-        })
-        cardRef.className = 'movie-card'; // Lägg gärna till en klass för styling
+        // cardRef.addEventListener('click', () => {
+        //     localStorage.setItem('singleMovie', (movie.imdbID));
+        // })
+        cardRef.className = 'movie-card'; 
 
         // Lägg till titel
         const titleRef = document.createElement('h3');
@@ -23,9 +23,6 @@ export function movieCards(movieList) {
             heartRef.classList.toggle('far'); // Växla mellan klasser
         });
         cardRef.appendChild(heartRef);
-
-        // Lägg till kortet i container
-        container.appendChild(cardRef);
 
         // Lägg till Poster
         const posterRef = document.createElement('img');

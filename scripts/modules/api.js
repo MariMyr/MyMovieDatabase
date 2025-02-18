@@ -32,6 +32,15 @@ export async function fetchSearchedMovies(searchQuery) {
     }
 }
 
-// export async function fecthMovieDetails() {  // detaljerad info om specifik film
-    
-// }
+export async function fetchSingleMovie(imdbID) {  // detaljerad info om specifik film
+    try {
+        const response = await fetch(`http://www.omdbapi.com/?apikey=3e42d96e&i=${imdbID}&plot=full`)
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        let movie = await response.json();
+        return movie;
+    } catch (error) {
+
+    }
+}

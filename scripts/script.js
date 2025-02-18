@@ -1,7 +1,8 @@
-import { fetchSearchedMovies, fetchTopMovies, oData } from "./modules/api.js";
+import { fetchSearchedMovies, fetchTopMovies, fetchSingleMovie, oData } from "./modules/api.js";
 import { renderTrailers } from "./modules/caroussel.js";
 import { movieCards } from "./components/movieCard.js";
 import { setupSearchForm } from "./components/search.js";
+import { detailedMovieCard } from "./components/detailedMovieCard.js";
 
 async function setupPage() {
     if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
@@ -30,11 +31,12 @@ if (window.location.pathname === '/' || window.location.pathname === '/index.htm
 
 } else if (window.location.pathname === '/singleMovie.html') {
     console.log('singleMovie.html');
-    let id = localStorage.getItem('singleMovie');
-    console.log(id);
-    let movies = JSON.parse(localStorage.getItem('movies')) || [];
-    let movie = movies.find(movie => movie.imdbID === (id));
-    console.log(`Detta är ${movie.Title}s sida`);  
+    // let id = localStorage.getItem('singleMovie'); // ändra här
+    // console.log(id);
+    // let movies = JSON.parse(localStorage.getItem('movies')) || [];
+    // let movie = movies.find(movie => movie.imdbID === (id));
+    // console.log(`Detta är ${movie.Title}s sida`);  
+    
 
 } else if (window.location.pathname === '/search.html') {
     console.log('search.html');
@@ -66,8 +68,27 @@ async function searchPageSetup() {
         return;
     }
 }
-
 searchPageSetup();
+
+async function singleMoviePageSetup() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const imdbID = urlParams.get('id');
+
+    if (!imdbID) {
+        console.error('No imdbID found in URL');
+        return;
+    }
+
+    try {
+        const singleMovie = await fetchSingleMovie(imdbID);  // Hämta den detaljerade filminformationen
+        detailedMovieCard(singleMovie);  // Rendera informationen
+    } catch (error) {
+        console.error('Error fetching movie:', error);
+    }
+    ;
+}
+
+singleMoviePageSetup();
 
 
 // async function searchPageSetup() {
