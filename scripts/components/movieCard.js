@@ -1,9 +1,13 @@
 export function movieCards(movieList) {
-
+    console.log('movieCards() körs');
     const container = document.querySelector('#cardContainer');
+
     movieList.forEach(movie => {
         // skapa ett kort
         const cardRef = document.createElement('article');
+        cardRef.addEventListener('click', () => {
+            localStorage.setItem('singleMovie', (movie.imdbID));
+        })
         cardRef.className = 'movie-card'; // Lägg gärna till en klass för styling
 
         // Lägg till titel
@@ -28,6 +32,11 @@ export function movieCards(movieList) {
         posterRef.src = movie.Poster;
         posterRef.alt = `${movie.Title} poster`;
         cardRef.appendChild(posterRef);
+
+        // Klick-händelse för att gå till en ny sida
+        posterRef.addEventListener('click', () => {
+            window.location.href = `singleMovie.html?id=${movie.imdbID}`;
+        })
 
         // Lägg till kortet i container
         container.appendChild(cardRef);
