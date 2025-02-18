@@ -35,7 +35,7 @@ export function movieCards(movieList) {
 
         // Klick-händelse för att gå till en ny sida
         posterRef.addEventListener('click', () => {
-            window.location.href = `singleMovie.html?id=${movie.imdbID}`;
+            window.location.href = `singleMovie.html?id=${movie.imdbID}`; // ändra så man får upp mer infor? Bara id nu?
         })
 
         // Lägg till kortet i container

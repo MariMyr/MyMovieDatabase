@@ -87,10 +87,10 @@ body {
     cursor: pointer;
 }
 
-
-.popular-title {
+.popular-title, .search-title {
     color: var(--primary-yellow);
     font-size: 2rem;
+    margin-top: 2rem;
     margin-bottom: 1rem;
     padding-left: 2rem;
 }
