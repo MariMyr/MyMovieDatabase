@@ -14,16 +14,21 @@ export async function fetchTopMovies() {
     }
 }
 
-export async function searchMovies() {
+export async function fetchSearchedMovies(searchQuery) {
+    if (!searchQuery) {
+        console.error("No search query provided.");
+        return [];
+    }
     try {
-        const response = await fetch('http://www.omdbapi.com/?apikey=3e42d96e&');    
+    const response = await fetch(`http://www.omdbapi.com/?apikey=3e42d96e&s=${searchQuery}`);    
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        let movies = await response.json();
-        oData.topMovieList = movies;
+        let data = await response.json();
+        return data.Search || []; // Returnerar endast listan av filmer
     } catch (error) {
     console.error("Error fetching movies: ", error);
+    return [];
     }
 }
 
