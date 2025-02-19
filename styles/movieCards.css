@@ -1,11 +1,10 @@
-@import url(style.css);
+@import url('style.css');
 
 .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 2rem;
     padding: 2rem;
-    ;
 }
 
 .movie-card {
@@ -24,30 +23,33 @@
 /* När man hovrar på kortet */
 .movie-card:hover {
     transform: scale(1.05);
-    /* Förstorar kortet vid hovring */
 }
 
 .movie-card img {
     width: 100%;
+    position: relative;
     flex-grow: 1;
     object-fit: cover;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .movie-card h3 {
     font-size: 1.5rem;
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
     margin-bottom: 1rem;
     padding: 0.7rem;
-    color: #FBD1A2;
+    cursor: pointer;
+    color: var(--text-color)
 }
 
-.fa-heart {
+.movie-card .fa-heart {
     position: absolute;
     top: 0.8rem;
     right: 1rem;
     cursor: pointer;
-    font-size: 1.7rem;
-    /* Justera storleken på ikonen */
+    font-size: 2rem;
     color: var(--primary-red);
 }
+
+

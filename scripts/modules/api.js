@@ -20,7 +20,7 @@ export async function fetchSearchedMovies(searchQuery) {
         return [];
     }
     try {
-    const response = await fetch(`http://www.omdbapi.com/?apikey=3e42d96e&s=${searchQuery}`);    
+    const response = await fetch(`http://www.omdbapi.com/?apikey=3e42d96e&s=${searchQuery}*`);    
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
