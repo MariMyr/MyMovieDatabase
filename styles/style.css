@@ -1,4 +1,5 @@
 @import url('./carousel.css');
+@import url('./singleMovie.css');
 @import url('./movieCards.css');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -11,6 +12,7 @@
     --primary-grey: #1A1A1A;
     --primary-yellow: #FDB94A;
     --primary-red: #E11E26;
+    --text-color: #FBD1A2;
 }
 
 /* Base */
