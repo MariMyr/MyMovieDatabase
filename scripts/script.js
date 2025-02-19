@@ -1,8 +1,8 @@
 import { fetchSearchedMovies, fetchTopMovies, fetchSingleMovie, oData } from "./modules/api.js";
 import { renderTrailers } from "./modules/caroussel.js";
 import { movieCards } from "./components/movieCard.js";
-import { setupSearchForm } from "./components/search.js";
-import { detailedMovieCard } from "./components/detailedMovieCard.js";
+import { setupSearchForm } from "./utils/search.js";
+import { detailedMovieCard } from "./components/singleMovie.js";
 
 async function setupPage() {
     if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
