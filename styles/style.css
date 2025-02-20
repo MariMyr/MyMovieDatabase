@@ -33,6 +33,7 @@ body {
     max-width: 1180px;
     margin: 0 auto;
 }
+
 .center {
     margin: 0 auto;
 }
@@ -72,7 +73,6 @@ body {
     border: none;
 }
 
-
 .header__form-btn {
     border-radius: 0 2rem 2rem 0;
     width: 5rem;
@@ -91,7 +91,9 @@ body {
     cursor: pointer;
 }
 
-.popular-title, .search-title, .favorites-title {
+.popular-title,
+.search-title,
+.favorites-title {
     color: var(--primary-yellow);
     font-size: 2rem;
     margin-top: 2rem;

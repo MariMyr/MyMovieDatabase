@@ -2,7 +2,7 @@ export const oData = { topMovieList: [] };
 
 export async function fetchTopMovies() {
     try {
-        const response = await fetch('https://santosnr6.github.io/Data/favoritemovies.json');    
+        const response = await fetch('https://santosnr6.github.io/Data/favoritemovies.json');
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -10,7 +10,7 @@ export async function fetchTopMovies() {
         oData.topMovieList = movies;
         localStorage.setItem('movies', JSON.stringify(movies)); // Spara i localStorage
     } catch (error) {
-    console.error("Error fetching movies: ", error);
+        console.error("Error fetching movies: ", error);
     }
 }
 
@@ -20,15 +20,15 @@ export async function fetchSearchedMovies(searchQuery) {
         return [];
     }
     try {
-    const response = await fetch(`http://www.omdbapi.com/?apikey=3e42d96e&s=${searchQuery}*`);    
+        const response = await fetch(`http://www.omdbapi.com/?apikey=3e42d96e&s=${searchQuery}*`);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         let data = await response.json();
         return data.Search || []; // Returnerar endast listan av filmer
     } catch (error) {
-    console.error("Error fetching movies: ", error);
-    return [];
+        console.error("Error fetching movies: ", error);
+        return [];
     }
 }
 
