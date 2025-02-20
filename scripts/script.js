@@ -3,6 +3,7 @@ import { renderTrailers } from "./modules/caroussel.js";
 import { movieCards } from "./components/movieCard.js";
 import { setupSearchForm } from "./utils/search.js";
 import { detailedMovieCard } from "./components/singleMovie.js";
+import { saveToFavorites, removeFromFavorites,displayFavorites } from "./modules/localStorage.js";
 
 async function setupPage() {
     if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
@@ -28,15 +29,10 @@ if (window.location.pathname === '/' || window.location.pathname === '/index.htm
 
 } else if (window.location.pathname === '/favorites.html') {
     console.log('favorites.html');
+    favoritesPageSetup();
 
 } else if (window.location.pathname === '/singleMovie.html') {
     console.log('singleMovie.html');
-    // let id = localStorage.getItem('singleMovie'); // ändra här
-    // console.log(id);
-    // let movies = JSON.parse(localStorage.getItem('movies')) || [];
-    // let movie = movies.find(movie => movie.imdbID === (id));
-    // console.log(`Detta är ${movie.Title}s sida`);  
-    
 
 } else if (window.location.pathname === '/search.html') {
     console.log('search.html');
@@ -89,6 +85,13 @@ async function singleMoviePageSetup() {
 }
 
 singleMoviePageSetup();
+
+function favoritesPageSetup() {
+    if (window.location.pathname !== '/favorites.html') {
+        return;
+    }
+    displayFavorites(); // Visa sparade favoriter
+}
 
 
 // async function searchPageSetup() {
