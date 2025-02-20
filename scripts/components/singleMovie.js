@@ -61,25 +61,54 @@ export function detailedMovieCard(movie) {
     trailerButton.className = 'trailer-button';
     trailerButton.textContent = 'Watch Trailer';
 
-    trailerButton.addEventListener('click', ()=> {
+    trailerButton.addEventListener('click', () => {
         const query = `${movie.Title} offical trailer`;
         const youtubeSearchURL = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
         window.open(youtubeSearchURL, '_blank');
     });
-   
+
     detailsRef.appendChild(trailerButton);
 
     // Hjärta (favorit-knapp)
     const heartRef = document.createElement('span');
     heartRef.className = 'favorite-heart far fa-heart'; // Börjar som "tomt" hjärta
-    heartRef.addEventListener('click', () => {
-        heartRef.classList.toggle('fas'); // Fylld ikon
-        heartRef.classList.toggle('far'); // Tom ikon
+    heartRef.dataset.movieID = movie.imdbID;
+
+    // Kontrollera om filmen redan är en favorit och uppdatera hjärtats utseende
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    if (favorites.some(fav => fav && fav.imdbID === movie.imdbID)) {
+        heartRef.classList.toggle('fas');
+        heartRef.classList.toggle('far');
+    }
+    heartRef.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        let isFavorite = favorites.some(fav => fav && fav.imdbID === movie.imdbID);
+
+
+        if (isFavorite) {
+            //Ta bort filmer från favoriter
+            favorites = favorites.filter(fav => fav && fav.imdbID !== movie.imdbID);
+            heartRef.classList.remove('fas');
+            heartRef.classList.add('far');
+        } else {
+            // Lägg till filmer
+            if (movie && movie.imdbID) {
+                favorites.push(movie);
+                heartRef.classList.remove('far');
+                heartRef.classList.add('fas');
+            } else {
+                console.error("Tried to add invalid movie to favorites:", movie);
+            }
+        }
+        // Uppdatera localStorage
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+
     });
 
     // Lägg till alla delar i kortet
     cardRef.appendChild(detailsRef);
     cardRef.appendChild(heartRef);
     // Lägg till kortet i container
-    container.appendChild(cardRef); 
+    container.appendChild(cardRef);
 }
