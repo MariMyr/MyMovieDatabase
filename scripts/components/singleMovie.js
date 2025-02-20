@@ -69,9 +69,9 @@ export function detailedMovieCard(movie) {
 
     detailsRef.appendChild(trailerButton);
 
-    // Hjärta (favorit-knapp)
+    // Hjärta
     const heartRef = document.createElement('span');
-    heartRef.className = 'favorite-heart far fa-heart'; // Börjar som "tomt" hjärta
+    heartRef.className = 'favorite-heart far fa-heart';
     heartRef.dataset.movieID = movie.imdbID;
 
     // Kontrollera om filmen redan är en favorit och uppdatera hjärtats utseende

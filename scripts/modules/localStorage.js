@@ -21,8 +21,7 @@ export function displayFavorites() {
 
     cardContainer.innerHTML = '';
 
-        // Clean favorites before using it, to remove null value
-        favorites = favorites.filter(movie => movie != null && typeof movie === 'object');
+    favorites = favorites.filter(movie => movie != null && typeof movie === 'object');
 
     if (favorites.length > 0) {
         movieCards(favorites, cardContainer);
@@ -41,7 +40,7 @@ export function displayFavorites() {
         });
     } else {
         console.log('No favorites found');
-        
+
     }
 }
 

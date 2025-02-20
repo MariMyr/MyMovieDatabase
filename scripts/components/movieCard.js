@@ -1,17 +1,3 @@
-import { saveToFavorites, removeFromFavorites } from "../modules/localStorage.js";
-
-// export function toggleFavorite(movie) {
-//     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-//     const isFavorite = favorites.some(fav => fav.imdbID === movie.imdbID);
-
-//     if (isFavorite) {
-//         removeFromFavorites();
-//     } else {
-//         saveToFavorites();
-//     }
-//     localStorage.setItem('favorites', JSON.stringify(favorites));
-// }
-
 export function movieCards(movieList) {
     console.log('movieCards() körs');
     const container = document.querySelector('#cardContainer');
@@ -43,7 +29,6 @@ export function movieCards(movieList) {
 
             let isFavorite = favorites.some(fav => fav && fav.imdbID === movie.imdbID);
 
-
             if (isFavorite) {
                 //Ta bort filmer från favoriter
                 favorites = favorites.filter(fav => fav && fav.imdbID !== movie.imdbID);
@@ -65,17 +50,15 @@ export function movieCards(movieList) {
         });
         cardRef.appendChild(heartRef);
 
-
         // Lägg till titel
         const titleRef = document.createElement('h3');
         titleRef.textContent = movie.Title;
         cardRef.appendChild(titleRef);
 
-
         // Klick-händelse för att gå till en ny sida
         cardRef.addEventListener('click', (e) => {
             e.stopPropagation();
-            window.location.href = `singleMovie.html?id=${movie.imdbID}`; // ändra så man får upp mer infor? Bara id nu?
+            window.location.href = `singleMovie.html?id=${movie.imdbID}`;
         })
 
         // Lägg till kortet i container
