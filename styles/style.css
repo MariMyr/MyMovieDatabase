@@ -4,15 +4,22 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 /* Variables */
-:root {
+/* :root {
     --header-brown: #2A1A1D;
-    /* Primary BG bör vara din bakgrundsfärg */
     --primary-bg: #271c1e;
     --primary-white: #ffffff;
     --primary-grey: #1A1A1A;
     --primary-yellow: #FDB94A;
     --primary-red: #E11E26;
     --text-color: #FBD1A2;
+} */
+
+:root {
+    --primary-bg: #121212;
+    --text-color: #EEEEEE;
+    --neon-pink: #db3753;
+    --neon-blue: #0e80fa;
+    --neon-cyan: #0aa7af;
 }
 
 /* Base */
@@ -25,6 +32,7 @@
 body {
     font-family: 'DM Sans', sans-serif;
     background-color: var(--primary-bg);
+    color: var(--text-color);
     max-width: 100%;
 }
 
@@ -43,11 +51,11 @@ body {
 }
 
 .header {
-    background-color: var(--header-brown);
     width: 100%;
     padding: 1.5rem;
     z-index: 999;
-    border-bottom: var(--primary-yellow) solid 0.1rem;
+    color: var(--neon-cyan);
+    border-bottom: var(--neon-cyan) solid 0.1rem;
 }
 
 .header__flex {
@@ -57,7 +65,7 @@ body {
 }
 
 .header__logo {
-    width: 250px;
+    width: 400px;
 }
 
 .header__form {
@@ -69,32 +77,46 @@ body {
 .header__input {
     width: 50%;
     padding: 1rem;
-    border-radius: 2rem 0 0 2rem;
+    border-radius: 0.5rem 0 0 0.5rem;
     border: none;
 }
 
 .header__form-btn {
-    border-radius: 0 2rem 2rem 0;
     width: 5rem;
-    border: none;
     cursor: pointer;
-    background-color: var(--primary-yellow);
-    font-size: 1rem;
+    /* background-color: var(--neon-cyan);
+    font-size: 1rem; */
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+    color: #121212;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-pink);
+    box-shadow: 0 0 10px var(--neon-cyan);
+    transition: all 0.3s ease-in-out;
 }
 
 .header__fav-btn {
     text-decoration: none;
-    font-size: 1.5rem;
-    color: var(--primary-yellow);
+    font-size: 1.8rem;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-cyan);
     background: none;
     border: none;
     cursor: pointer;
 }
 
+.header__fav-btn:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-pink);
+}
+
 .popular-title,
 .search-title,
 .favorites-title {
-    color: var(--primary-yellow);
+    color: var(--neon-pink);
+    text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink);
     font-size: 2rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
