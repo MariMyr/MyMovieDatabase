@@ -2,7 +2,7 @@ import { movieCards } from "../components/movieCard.js";
 
 export function saveToFavorites(movie) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    // Kontrollera att filmen inte redan finns i listan
+
     if (!favorites.some(fav => fav.imdbID === movie.imdbID)) {
         favorites.push(movie);
         localStorage.setItem('favorites', JSON.stringify(favorites));
@@ -26,7 +26,6 @@ export function displayFavorites() {
     if (favorites.length > 0) {
         movieCards(favorites, cardContainer);
 
-        // Lägg till event listeners för att ta bort filmer från favoriter
         cardContainer.querySelectorAll('.fa-heart').forEach(heart => {
             heart.addEventListener('click', (event) => {
                 event.stopPropagation();
@@ -34,13 +33,12 @@ export function displayFavorites() {
 
                 if (imdbID) {
                     removeFromFavorites(imdbID);
-                    displayFavorites(); // Uppdatera listan
+                    displayFavorites();
                 }
             });
         });
     } else {
         console.log('No favorites found');
-
     }
 }
 

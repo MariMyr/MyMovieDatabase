@@ -7,7 +7,7 @@ export async function randomMovie() {
     await fetchSearchedMovies();
 
     if (oData.topMovieList.length > 0) {
-        movieCards(oData.topMovieList); // Skickar in filmlistan till movieCards()
+        movieCards(oData.topMovieList);
         const randomTrailers = oData.topMovieList.sort(() => 0.5 - Math.random()).slice(0, 5);
         randomTrailers.forEach((movie, i) => renderTrailers(movie, i + 1));
     } else {
