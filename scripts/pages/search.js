@@ -18,6 +18,5 @@ export async function searchPageSetup() {
         console.error("Fetched movies is not an array:", movies);
         return;
     }
-
     movieCards(movies);
 }

@@ -3,17 +3,6 @@
 @import url('./movieCards.css');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
-/* Variables */
-/* :root {
-    --header-brown: #2A1A1D;
-    --primary-bg: #271c1e;
-    --primary-white: #ffffff;
-    --primary-grey: #1A1A1A;
-    --primary-yellow: #FDB94A;
-    --primary-red: #E11E26;
-    --text-color: #FBD1A2;
-} */
-
 :root {
     --primary-bg: #121212;
     --text-color: #EEEEEE;
@@ -22,7 +11,6 @@
     --neon-cyan: #0aa7af;
 }
 
-/* Base */
 * {
     box-sizing: border-box;
     padding: 0;
@@ -36,7 +24,6 @@ body {
     max-width: 100%;
 }
 
-/* Utils */
 .content-wrapper {
     max-width: 1180px;
     margin: 0 auto;
@@ -84,8 +71,6 @@ body {
 .header__form-btn {
     width: 5rem;
     cursor: pointer;
-    /* background-color: var(--neon-cyan);
-    font-size: 1rem; */
     background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
     color: #121212;
     font-size: 1.2rem;

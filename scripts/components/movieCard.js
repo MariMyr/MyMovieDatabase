@@ -3,11 +3,9 @@ export function movieCards(movieList) {
     const container = document.querySelector('#cardContainer');
 
     movieList.forEach(movie => {
-        // skapa ett kort
         const cardRef = document.createElement('article');
         cardRef.className = 'movie-card';
 
-        // Lägg till Poster
         const posterUrl = movie.Poster === 'N/A' ? "./res/icons/missing-poster.svg" : movie.Poster;
         const posterRef = document.createElement('img');
         posterRef.src = posterUrl;
@@ -19,12 +17,10 @@ export function movieCards(movieList) {
 
         cardRef.appendChild(posterRef);
 
-        // Lägg till hjärta
         const heartRef = document.createElement('span');
-        heartRef.className = 'far fa-heart'; // Start med kontur
+        heartRef.className = 'far fa-heart'; 
         heartRef.dataset.movieID = movie.imdbID;
 
-        // Kontrollera om filmen redan är en favorit och uppdatera hjärtats utseende
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         if (favorites.some(fav => fav && fav.imdbID === movie.imdbID)) {
             heartRef.classList.toggle('fas');
@@ -36,12 +32,10 @@ export function movieCards(movieList) {
             let isFavorite = favorites.some(fav => fav && fav.imdbID === movie.imdbID);
 
             if (isFavorite) {
-                //Ta bort filmer från favoriter
                 favorites = favorites.filter(fav => fav && fav.imdbID !== movie.imdbID);
                 heartRef.classList.remove('fas');
                 heartRef.classList.add('far');
             } else {
-                // Lägg till filmer
                 if (movie && movie.imdbID) {
                     favorites.push(movie);
                     heartRef.classList.remove('far');
@@ -50,24 +44,19 @@ export function movieCards(movieList) {
                     console.error("Tried to add invalid movie to favorites:", movie);
                 }
             }
-            // Uppdatera localStorage
             localStorage.setItem('favorites', JSON.stringify(favorites));
 
         });
         cardRef.appendChild(heartRef);
 
-        // Lägg till titel
         const titleRef = document.createElement('h3');
         titleRef.textContent = movie.Title;
         cardRef.appendChild(titleRef);
 
-        // Klick-händelse för att gå till en ny sida
         cardRef.addEventListener('click', (e) => {
             e.stopPropagation();
             window.location.href = `singleMovie.html?id=${movie.imdbID}`;
         })
-
-        // Lägg till kortet i container
         container.appendChild(cardRef);
     });
 }
