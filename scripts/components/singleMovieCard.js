@@ -9,9 +9,15 @@ export function detailedMovieCard(movie) {
     cardRef.className = 'singleMovie-card';
 
     // Lägga till poster
+    const posterUrl = movie.Poster === 'N/A' ? "./res/icons/missing-poster.svg" : movie.Poster;
     const posterRef = document.createElement('img');
-    posterRef.src = movie.Poster;
+    posterRef.src = posterUrl;
     posterRef.alt = `${movie.Title} poster`;
+
+    posterRef.ifError = () => {
+        posterRef.src = "./res/icons/missing-poster.svg";
+    }
+
     cardRef.appendChild(posterRef);
 
     // Skapa container för att text
