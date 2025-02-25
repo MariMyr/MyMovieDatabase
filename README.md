@@ -1,4 +1,4 @@
-![My logo](https://github.com/user-attachments/assets/78af346e-c340-452d-80b7-04b165854336)
+<img src="https://github.com/user-attachments/assets/78af346e-c340-452d-80b7-04b165854336" alt="My logo" width="200">
 
 # Individuellt examensarbete - MyMovieDatabase
 
