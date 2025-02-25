@@ -9,9 +9,11 @@ export async function homePageSetup() {
     await fetchTopMovies();
 
     if (oData.topMovieList.length > 0) {
-        movieCards(oData.topMovieList); // Skickar in filmlistan till movieCards()
-        const randomMovies = oData.topMovieList.sort(() => 0.5 - Math.random()).slice(0, 5);
-        randomMovies.forEach((movie, i) => renderTrailers(movie, i + 1));
+        const randomTrailers = oData.topMovieList.sort(() => 0.5 - Math.random()).slice(0, 5);
+        randomTrailers.forEach((movie, i) => renderTrailers(movie, i + 1));
+
+        const randomMovies = oData.topMovieList.sort(() => Math.random() - 0.5);
+        movieCards(randomMovies);
     } else {
         console.error("No movielist was found.");
     }
