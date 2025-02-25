@@ -12,11 +12,8 @@
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    /* border: 0.1rem solid var(--primary-yellow);
-    border-radius: 0.8rem; */
-    width: 15rem;
+    width: 14rem;
     text-align: center;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     overflow: hidden;
     background-color: var(--card-bg);
     border: 2px solid var(--neon-pink);
@@ -30,12 +27,6 @@
     transform: scale(1.05);
     box-shadow: 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink);
 }
-
-
-
-/* .movie-card:hover {
-    transform: scale(1.05);
-} */
 
 .movie-card img {
     width: 100%;
@@ -61,7 +52,7 @@
     right: 1rem;
     cursor: pointer;
     font-size: 2rem;
-    color: rgb(214, 33, 214);
+    color: var(--neon-pink)
 } 
 
 
