@@ -94,8 +94,6 @@
         max-width: 700px;
     }
 
-    .singleMovie-card img {}
-
     .title {
         font-size: 1.5rem;
     }
@@ -111,7 +109,6 @@
     .favorite-heart {
         font-size: 1.3rem;
     }
-
 }
 
 @media screen and (max-width: 750px) {
@@ -157,8 +154,4 @@
         right: 10px;
         font-size: 1.8rem;
     }
-}
-
-@media screen and (max-width: 500px) {
-
 }
