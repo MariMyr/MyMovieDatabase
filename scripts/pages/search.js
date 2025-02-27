@@ -2,8 +2,6 @@ import { fetchSearchedMovies } from "../modules/api.js";
 import { movieCards } from "../components/movieCard.js";
 
 export async function searchPageSetup() {
-    console.log('search.html');
-
     let params = new URLSearchParams(window.location.search);
     let value = params.get('movie');
 

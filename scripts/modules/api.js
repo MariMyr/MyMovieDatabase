@@ -21,7 +21,7 @@ export async function fetchSearchedMovies(searchQuery) {
         }
         let data = await response.json();
 
-        if (data.Response === "False") { 
+        if (data.Response === "False") {
             throw new Error(`OMDb API error: ${data.Error}`);
         }
 
@@ -32,14 +32,14 @@ export async function fetchSearchedMovies(searchQuery) {
     }
 }
 
-export async function fetchSingleMovie(imdbID) { 
+export async function fetchSingleMovie(imdbID) {
     try {
         const response = await fetch(`http://www.omdbapi.com/?apikey=3e42d96e&i=${imdbID}&plot=full`)
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         let movie = await response.json();
-        if (movie.Response === "False") {  
+        if (movie.Response === "False") {
             throw new Error(`OMDb API error: ${movie.Error}`);
         }
         return movie;

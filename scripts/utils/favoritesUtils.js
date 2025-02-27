@@ -10,7 +10,6 @@ export function toggleFavorite(heartRef, movie) {
         favorites.push(movie);
         heartRef.classList.remove('far');
         heartRef.classList.add('fas');
-
     }
     localStorage.setItem('favorites', JSON.stringify(favorites));
 }

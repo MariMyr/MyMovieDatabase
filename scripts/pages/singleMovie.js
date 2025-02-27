@@ -2,8 +2,6 @@ import { fetchSingleMovie } from "../modules/api.js";
 import { detailedMovieCard } from "../components/singleMovieCard.js";
 
 export async function singleMoviePageSetup() {
-    console.log('singleMovie.html');
-
     const urlParams = new URLSearchParams(window.location.search);
     const imdbID = urlParams.get('id');
 

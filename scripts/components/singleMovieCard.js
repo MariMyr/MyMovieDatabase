@@ -54,17 +54,17 @@ export function detailedMovieCard(movie) {
     plotRef.textContent = movie.Plot;
     detailsRef.appendChild(plotRef);
 
-    // const trailerButton = document.createElement('button');
-    // trailerButton.className = 'trailer-button';
-    // trailerButton.textContent = 'Watch Trailer';
+    const trailerButton = document.createElement('button');
+    trailerButton.className = 'trailer-button';
+    trailerButton.textContent = 'Watch Trailer';
 
-    // trailerButton.addEventListener('click', () => {
-    //     const query = `${movie.Title} offical trailer`;
-    //     const youtubeSearchURL = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
-    //     window.open(youtubeSearchURL, '_blank');
-    // });
+    trailerButton.addEventListener('click', () => {
+        const query = `${movie.Title} offical trailer`;
+        const youtubeSearchURL = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+        window.open(youtubeSearchURL, '_blank');
+    });
 
-    // detailsRef.appendChild(trailerButton);
+    detailsRef.appendChild(trailerButton);
 
     const heartRef = document.createElement('span');
     heartRef.className = 'favorite-heart far fa-heart';

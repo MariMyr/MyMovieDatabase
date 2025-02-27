@@ -115,21 +115,22 @@
     .content-wrapper {
         margin: 2rem;
     }
+
     .singleMovie-card {
-        grid-template-columns: 1fr; 
-        padding: 2rem; 
-        margin: 2rem; 
+        grid-template-columns: 1fr;
+        padding: 2rem;
+        margin: 2rem;
     }
 
     .singleMovie-card img {
         max-width: 300px;
         width: 100%;
         height: auto;
-        margin: 0 auto; 
+        margin: 0 auto;
     }
 
     .title {
-        font-size: 1.3rem; 
+        font-size: 1.3rem;
     }
 
     .imdb-rating {
