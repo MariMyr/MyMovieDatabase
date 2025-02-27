@@ -15,5 +15,4 @@ if (window.location.pathname === '/' || window.location.pathname === '/index.htm
 
 } else if (window.location.pathname === '/favorites.html') {
     favoritesPageSetup();
-
 }
