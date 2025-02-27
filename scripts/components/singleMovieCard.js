@@ -1,6 +1,6 @@
-export function detailedMovieCard(movie) {
-    console.log('detailedMovieCard() körs');
+import { toggleFavorite } from "../utils/favoritesUtils.js";
 
+export function detailedMovieCard(movie) {
     const container = document.querySelector('#movieInformation');
     container.innerHTML = '';
 
@@ -12,7 +12,7 @@ export function detailedMovieCard(movie) {
     posterRef.src = posterUrl;
     posterRef.alt = `${movie.Title} poster`;
 
-    posterRef.ifError = () => {
+    posterRef.onError = () => {
         posterRef.src = "./res/icons/missing-poster.svg";
     }
 
@@ -54,17 +54,17 @@ export function detailedMovieCard(movie) {
     plotRef.textContent = movie.Plot;
     detailsRef.appendChild(plotRef);
 
-    const trailerButton = document.createElement('button');
-    trailerButton.className = 'trailer-button';
-    trailerButton.textContent = 'Watch Trailer';
+    // const trailerButton = document.createElement('button');
+    // trailerButton.className = 'trailer-button';
+    // trailerButton.textContent = 'Watch Trailer';
 
-    trailerButton.addEventListener('click', () => {
-        const query = `${movie.Title} offical trailer`;
-        const youtubeSearchURL = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
-        window.open(youtubeSearchURL, '_blank');
-    });
+    // trailerButton.addEventListener('click', () => {
+    //     const query = `${movie.Title} offical trailer`;
+    //     const youtubeSearchURL = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+    //     window.open(youtubeSearchURL, '_blank');
+    // });
 
-    detailsRef.appendChild(trailerButton);
+    // detailsRef.appendChild(trailerButton);
 
     const heartRef = document.createElement('span');
     heartRef.className = 'favorite-heart far fa-heart';
@@ -77,24 +77,7 @@ export function detailedMovieCard(movie) {
     }
     heartRef.addEventListener('click', (e) => {
         e.stopPropagation();
-
-        let isFavorite = favorites.some(fav => fav && fav.imdbID === movie.imdbID);
-
-
-        if (isFavorite) {
-            favorites = favorites.filter(fav => fav && fav.imdbID !== movie.imdbID);
-            heartRef.classList.remove('fas');
-            heartRef.classList.add('far');
-        } else {
-            if (movie && movie.imdbID) {
-                favorites.push(movie);
-                heartRef.classList.remove('far');
-                heartRef.classList.add('fas');
-            } else {
-                console.error("Tried to add invalid movie to favorites:", movie);
-            }
-        }
-        localStorage.setItem('favorites', JSON.stringify(favorites));
+        toggleFavorite(heartRef, movie);
     });
 
     cardRef.appendChild(detailsRef);

@@ -1,11 +1,9 @@
 import { fetchTopMovies, oData } from "../modules/api.js";
 import { renderTrailers } from "../modules/caroussel.js";
 import { movieCards } from "../components/movieCard.js";
-import { setupSearchForm } from "../utils/search.js";
+import { setupSearchForm } from "../utils/utilsSearch.js";
 
 export async function homePageSetup() {
-    console.log('index.html');
-
     await fetchTopMovies();
 
     if (oData.topMovieList.length > 0) {
