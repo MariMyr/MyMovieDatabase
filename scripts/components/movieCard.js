@@ -1,3 +1,5 @@
+import { toggleFavorite } from "../utils/favoritesUtils.js";
+
 export function movieCards(movieList) {
     console.log('movieCards() körs');
     const container = document.querySelector('#cardContainer');
@@ -14,39 +16,23 @@ export function movieCards(movieList) {
         posterRef.ifError = () => {
             posterRef.src = "./res/icons/missing-poster.svg";
         }
-
         cardRef.appendChild(posterRef);
 
         const heartRef = document.createElement('span');
-        heartRef.className = 'far fa-heart'; 
+        heartRef.className = 'far fa-heart';
         heartRef.dataset.movieID = movie.imdbID;
 
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        if (favorites.some(fav => fav && fav.imdbID === movie.imdbID)) {
-            heartRef.classList.toggle('fas');
-            heartRef.classList.toggle('far');
+        if (favorites.some(fav => fav?.imdbID === movie.imdbID)) {
+            heartRef.classList.add('fas');
+            heartRef.classList.remove('far');
         }
+        
         heartRef.addEventListener('click', (e) => {
             e.stopPropagation();
-
-            let isFavorite = favorites.some(fav => fav && fav.imdbID === movie.imdbID);
-
-            if (isFavorite) {
-                favorites = favorites.filter(fav => fav && fav.imdbID !== movie.imdbID);
-                heartRef.classList.remove('fas');
-                heartRef.classList.add('far');
-            } else {
-                if (movie && movie.imdbID) {
-                    favorites.push(movie);
-                    heartRef.classList.remove('far');
-                    heartRef.classList.add('fas');
-                } else {
-                    console.error("Tried to add invalid movie to favorites:", movie);
-                }
-            }
-            localStorage.setItem('favorites', JSON.stringify(favorites));
-
+            toggleFavorite(heartRef, movie);
         });
+
         cardRef.appendChild(heartRef);
 
         const titleRef = document.createElement('h3');

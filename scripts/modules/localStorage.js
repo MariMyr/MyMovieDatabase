@@ -1,23 +1,9 @@
 import { movieCards } from "../components/movieCard.js";
-
-export function saveToFavorites(movie) {
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-    if (!favorites.some(fav => fav.imdbID === movie.imdbID)) {
-        favorites.push(movie);
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-    }
-}
-
-export function removeFromFavorites(movieID) {
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    favorites = favorites.filter(movie => movie.imdbID !== movieID);
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-}
+import { toggleFavorite } from "../utils/favoritesUtils.js";
 
 export function displayFavorites() {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    const cardContainer = document.getElementById('cardContainer');
+    const cardContainer = document.querySelector('#cardContainer');
 
     cardContainer.innerHTML = '';
 
@@ -32,7 +18,8 @@ export function displayFavorites() {
                 let imdbID = event.target.dataset.imdbid;
 
                 if (imdbID) {
-                    removeFromFavorites(imdbID);
+                    let movie = favorites.find(fav => fav.imdbID === imdbID);
+                    toggleFavorite(event.target, movie);
                     displayFavorites();
                 }
             });
