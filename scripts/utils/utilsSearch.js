@@ -9,7 +9,6 @@ export function setupSearchForm() {
         window.location.href = `search.html?movie=${inputRef.value}`;
     })
     autocompleteList(inputRef);
-
 }
 
 function autocompleteList(inputRef) {
@@ -34,5 +33,4 @@ function autocompleteList(inputRef) {
             console.log('Error fetching autocomplete data:', error);
         }
     });
-    
 }

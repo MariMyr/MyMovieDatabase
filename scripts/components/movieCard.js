@@ -1,7 +1,6 @@
 import { toggleFavorite } from "../utils/favoritesUtils.js";
 
 export function movieCards(movieList) {
-    console.log('movieCards() körs');
     const container = document.querySelector('#cardContainer');
 
     movieList.forEach(movie => {
@@ -27,7 +26,7 @@ export function movieCards(movieList) {
             heartRef.classList.add('fas');
             heartRef.classList.remove('far');
         }
-        
+
         heartRef.addEventListener('click', (e) => {
             e.stopPropagation();
             toggleFavorite(heartRef, movie);
