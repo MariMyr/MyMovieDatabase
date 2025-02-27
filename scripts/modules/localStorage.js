@@ -2,7 +2,7 @@ import { movieCards } from "../components/movieCard.js";
 import { toggleFavorite } from "../utils/favoritesUtils.js";
 
 export function displayFavorites() {
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const cardContainer = document.querySelector('#cardContainer');
 
     cardContainer.innerHTML = '';
