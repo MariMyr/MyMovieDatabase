@@ -1,6 +1,6 @@
 import { homePageSetup } from "./pages/home.js";
 import { searchPageSetup } from "./pages/search.js";
-import { singleMoviePageSetup } from "./pages/singleMovie.js";
+import { singleMoviePageSetup } from "./pages/singlemovie.js";
 import { favoritesPageSetup } from "./pages/favorites.js";
 
 
@@ -10,7 +10,7 @@ if (window.location.pathname === '/' || window.location.pathname === '/index.htm
 } else if (window.location.pathname === '/search.html') {
     searchPageSetup();
 
-} else if (window.location.pathname === '/singleMovie.html') {
+} else if (window.location.pathname === '/singlemovie.html') {
     singleMoviePageSetup();
 
 } else if (window.location.pathname === '/favorites.html') {

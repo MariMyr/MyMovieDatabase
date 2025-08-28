@@ -1,5 +1,5 @@
 import { fetchSingleMovie } from "../modules/api.js";
-import { detailedMovieCard } from "../components/singleMovieCard.js";
+import { detailedMovieCard } from "../components/singlemoviecard.js";
 
 export async function singleMoviePageSetup() {
     const urlParams = new URLSearchParams(window.location.search);

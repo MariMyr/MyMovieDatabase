@@ -1,31 +1,32 @@
-import { movieCards } from "../components/movieCard.js";
-import { toggleFavorite } from "../utils/favoritesUtils.js";
+import { movieCards } from "../components/moviecard.js";
+import { toggleFavorite } from "../utils/favoritesutils.js";
 
 export function displayFavorites() {
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    const cardContainer = document.querySelector('#cardContainer');
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  const cardContainer = document.querySelector("#cardContainer");
 
-    cardContainer.innerHTML = '';
+  cardContainer.innerHTML = "";
 
-    favorites = favorites.filter(movie => movie != null && typeof movie === 'object');
+  favorites = favorites.filter(
+    (movie) => movie != null && typeof movie === "object"
+  );
 
-    if (favorites.length > 0) {
-        movieCards(favorites, cardContainer);
+  if (favorites.length > 0) {
+    movieCards(favorites, cardContainer);
 
-        cardContainer.querySelectorAll('.fa-heart').forEach(heart => {
-            heart.addEventListener('click', (event) => {
-                event.stopPropagation();
-                let imdbID = event.target.dataset.imdbid;
+    cardContainer.querySelectorAll(".fa-heart").forEach((heart) => {
+      heart.addEventListener("click", (event) => {
+        event.stopPropagation();
+        let imdbID = event.target.dataset.imdbid;
 
-                if (imdbID) {
-                    let movie = favorites.find(fav => fav.imdbID === imdbID);
-                    toggleFavorite(event.target, movie);
-                    displayFavorites();
-                }
-            });
-        });
-    } else {
-        console.log('No favorites found');
-    }
+        if (imdbID) {
+          let movie = favorites.find((fav) => fav.imdbID === imdbID);
+          toggleFavorite(event.target, movie);
+          displayFavorites();
+        }
+      });
+    });
+  } else {
+    console.log("No favorites found");
+  }
 }
-
