@@ -1,7 +1,9 @@
 import { toggleFavorite } from "../utils/favoritesutils.js";
 
-export function movieCards(movieList) {
-  const container = document.querySelector("#cardContainer");
+export function movieCards(movieList, container) {
+  container = container || document.querySelector("#cardContainer");
+
+  container.innerHTML = "";
 
   movieList.forEach((movie) => {
     const cardRef = document.createElement("article");
