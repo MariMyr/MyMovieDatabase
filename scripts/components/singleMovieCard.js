@@ -71,7 +71,7 @@ export function detailedMovieCard(movie) {
 
   const heartRef = document.createElement("span");
   heartRef.className = "favorite-heart far fa-heart";
-  heartRef.dataset.movieID = movie.imdbID;
+  heartRef.dataset.imdbId = movie.imdbID;
 
   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
   if (favorites.some((fav) => fav && fav.imdbID === movie.imdbID)) {

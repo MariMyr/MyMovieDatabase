@@ -20,7 +20,7 @@ export function movieCards(movieList) {
 
     const heartRef = document.createElement("span");
     heartRef.className = "far fa-heart";
-    heartRef.dataset.movieID = movie.imdbID;
+    heartRef.dataset.imdbId = movie.imdbID;
 
     let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     if (favorites.some((fav) => fav?.imdbID === movie.imdbID)) {
