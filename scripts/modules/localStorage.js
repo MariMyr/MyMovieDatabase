@@ -1,4 +1,4 @@
-import { movieCards } from "../components/moviecard.js";
+import { movieCards } from "../components/movieCard.js";
 import { toggleFavorite } from "../utils/favoritesutils.js";
 
 export function displayFavorites() {

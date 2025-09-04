@@ -1,6 +1,6 @@
 import { fetchTopMovies, oData } from "../modules/api.js";
 import { renderTrailers } from "../modules/caroussel.js";
-import { movieCards } from "../components/moviecard.js";
+import { movieCards } from "../components/movieCard.js";
 import { setupSearchForm } from "../utils/utilssearch.js";
 
 export async function homePageSetup() {
