@@ -2,14 +2,8 @@ import { movieCards } from "../components/movieCard.js";
 import { toggleFavorite } from "../utils/favoritesutils.js";
 
 export function displayFavorites() {
-  console.log("displayFavorites startar...");
   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  console.log("Hämtade favoriter från localStorage:", favorites);
   const cardContainer = document.querySelector("#cardContainer");
-  if (!cardContainer) {
-        console.error("Ingen #cardContainer hittades i DOM!");
-        return;
-  }
   cardContainer.innerHTML = "";
 
   favorites = favorites.filter(
