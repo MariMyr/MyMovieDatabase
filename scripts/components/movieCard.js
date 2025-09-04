@@ -33,6 +33,9 @@ export function movieCards(movieList, container) {
     heartRef.addEventListener("click", (e) => {
       e.stopPropagation();
       toggleFavorite(heartRef, movie);
+      if (container.id === "cardContainer") return;
+      container.innerHTML = "";
+      movieCards(favorites, container);
     });
 
     cardRef.appendChild(heartRef);

@@ -4,15 +4,17 @@ import { singleMoviePageSetup } from "./pages/singlemovie.js";
 import { favoritesPageSetup } from "./pages/favorites.js";
 
 
-if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-    homePageSetup();
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+      homePageSetup();
 
-} else if (window.location.pathname === '/search.html') {
-    searchPageSetup();
+  } else if (window.location.pathname === '/search.html') {
+      searchPageSetup();
 
-} else if (window.location.pathname === '/singlemovie.html') {
-    singleMoviePageSetup();
+  } else if (window.location.pathname === '/singlemovie.html') {
+      singleMoviePageSetup();
 
-} else if (window.location.pathname === '/favorites.html') {
-    favoritesPageSetup();
-}
+  } else if (window.location.pathname === '/favorites.html') {
+      favoritesPageSetup();
+  }
+});
