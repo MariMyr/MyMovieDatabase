@@ -22,6 +22,8 @@ import { favoritesPageSetup } from "./pages/favorites.js";
 // });
 
 document.addEventListener("DOMContentLoaded", () => {
+    console.log("setup.js laddas!");
+
     const path = window.location.pathname.toLowerCase();
 
     if (path.includes("index.html") || path === "/" || path === "") {
