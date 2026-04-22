@@ -2,6 +2,9 @@
 
 # Individuellt examensarbete - MyMovieDatabase
 
+# Deploy
+Netlify: https://mmyrmoen-mymoviedatabase.netlify.app/
+
 ## Beskrivning  
 MyMovieDatabase är en webbapplikation inspirerad av IMDb, där användare kan:  
 - Söka efter filmer  
